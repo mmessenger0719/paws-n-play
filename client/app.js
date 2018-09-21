@@ -4,13 +4,23 @@ import { StyleSheet, Text, View } from 'react-native'
 import { connect, Provider } from 'react-redux'
 import store from './store'
 import { createStore } from 'redux'
-import { Navbar } from './components'
+import { createStackNavigator } from 'react-navigation'
+import { Home, Activities } from './components'
+
+const Nav = createStackNavigator({
+  Home: {
+    screen: Home,
+    navigationOptions: {
+      headerTitle: 'Home'
+    }
+  }
+})
 
 export default class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Navbar />
+        <Nav />
       </Provider>
     )
   }

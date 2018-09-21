@@ -17,10 +17,14 @@ const styles = StyleSheet.create({
 })
 
 export default class App extends React.Component {
+  static navigationOptions = {
+    title: 'Welcome'
+  }
   render() {
     let pic = {
       uri: 'https://image.ibb.co/cnUmsK/IMG_8139.jpg'
     }
+    const { navigate } = this.props.navigation
     return (
       <View style={styles.container}>
         <Text style={styles.red}>Paws-N-Play</Text>
@@ -28,11 +32,10 @@ export default class App extends React.Component {
         <Text style={styles.red}>Have a waggy day!</Text>
         <Image source={pic} style ={{width: 100, height: 100}} />
         <Button
-      onPress={() => {
-        Alert.alert('You tapped the button!');
-      }}
-      title="Press Me"
-    />
+          onPress={() => { Alert.alert('You tapped the button!') }} title="Press Me" />
+        <Button
+          title="Training Exercises"
+          onPress={() => navigate('Activities')} />
       </View>
     )
   }
