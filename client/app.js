@@ -1,0 +1,17 @@
+// look at app.js to maybe create a navagitor
+import React, { Component } from 'react'
+import { StyleSheet, Text, View } from 'react-native'
+import { connect, Provider } from 'react-redux'
+import store from './store'
+import { createStore } from 'redux'
+import { Navbar } from './components'
+
+export default class App extends Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <Navbar />
+      </Provider>
+    )
+  }
+}
